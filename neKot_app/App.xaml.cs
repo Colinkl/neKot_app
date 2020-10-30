@@ -15,7 +15,7 @@ namespace neKot_app
 
             DependencyService.Register<MockDataStore>();
             MainPage = new AppShell();
-            Shell.Current.GoToAsync("//LoginPage");
+            //Shell.Current.GoToAsync("//LoginPage");
             
         }
 
