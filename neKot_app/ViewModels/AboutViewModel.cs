@@ -24,7 +24,7 @@ namespace neKot_app.ViewModels
         }
         private async Task ExecuteLoadItemsCommand()
         {
-             await Shell.Current.GoToAsync("//LoginPage");
+             //await Shell.Current.GoToAsync("//LoginPage");
             //IsBusy = true;
 
             //try
@@ -50,7 +50,7 @@ namespace neKot_app.ViewModels
             if (e.Item == null)
                 return;
 
-            await DisplayAlert("Item Tapped", "An item was tapped.", "OK");
+            //await DisplayAlert("Item Tapped", "An item was tapped.", "OK");
 
             //Deselect Item
             ((ListView)sender).SelectedItem = null;

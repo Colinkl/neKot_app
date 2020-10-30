@@ -2,6 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="neKot_app.Views.AboutPage"
+             xmlns:local="clr-namespace:neKot_app.ViewModels"
+             xmlns:model="clr-namespace:neKot_app.Models"
              xmlns:vm="clr-namespace:neKot_app.ViewModels"
              Title="{Binding Title}">
     
@@ -33,15 +35,15 @@
                             Style="{DynamicResource ListItemTextStyle}" 
                             FontSize="16" />
                         <Image />
-                        <Label Text="{Binding Year}" 
+                        <Label Text="{Binding Avatar}" 
                             LineBreakMode="NoWrap"
                             Style="{DynamicResource ListItemDetailTextStyle}"
                             FontSize="13" />
-                        <Label Text="{Binding Direction_name}" 
+                        <Label Text="{Binding Date}" 
                             LineBreakMode="NoWrap"
                             Style="{DynamicResource ListItemDetailTextStyle}"
                             FontSize="13" />
-                        <Label Text="{Binding Result}" 
+                        <Label Text="{Binding Link}" 
                             LineBreakMode="NoWrap"
                             Style="{DynamicResource ListItemDetailTextStyle}"
                             FontSize="13" />                      
