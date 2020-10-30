@@ -3,6 +3,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using neKot_app.Services;
 using neKot_app.Views;
+using System.Net.Http;
 
 namespace neKot_app
 {
@@ -14,6 +15,7 @@ namespace neKot_app
             InitializeComponent();
 
             DependencyService.Register<MockDataStore>();
+            DependencyService.Register<HttpClient>();
             MainPage = new AppShell();
             //Shell.Current.GoToAsync("//LoginPage");
             
