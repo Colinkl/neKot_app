@@ -22,7 +22,7 @@ namespace neKot_app.Services
         {
             var response = await httpClient.GetAsync(url);
             string respStr = await response.Content.ReadAsStringAsync();
-
+            return new List<NewsModel>();
         }
     }
 }

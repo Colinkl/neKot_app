@@ -22,7 +22,7 @@ namespace neKot_app.ViewModels
             Title = "Achivements";
             Achivements = new ObservableCollection<Achivement>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
-            achivementsSearch = new AchivementsSearch();
+            achivementsSearch = new AchivementsSearch(HttpClient);
             currentUser = new User() { FirstName = "Алексей", LastName = "Бакланов" };
         }
 
