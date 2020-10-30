@@ -4,7 +4,7 @@ using System.Text;
 
 namespace neKot_app.Models
 {
-    class Achivement
+    public class Achivement
     {
         public int ID { get; set; }
         public int UserID { get; set; }
