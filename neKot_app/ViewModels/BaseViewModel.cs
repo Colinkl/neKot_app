@@ -7,12 +7,13 @@ using Xamarin.Forms;
 
 using neKot_app.Models;
 using neKot_app.Services;
+using System.Net.Http;
 
 namespace neKot_app.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
+        public HttpClient HttpClient => DependencyService.Get<HttpClient>();
 
         bool isBusy = false;
         public bool IsBusy

@@ -11,13 +11,17 @@ namespace neKot_app.Services
 {
     public class AchivementsSearch
     {
-        private HttpClient html = new HttpClient();
+        private HttpClient httpClient;
         private string url = "https://edo.72to.ru/genius/children?number=25&surname_firstname=";
-        
+
+        public AchivementsSearch(HttpClient httpClient)
+        {
+            this.httpClient = httpClient;
+        }
         public async Task<List<Achivement>> GetAchivementsByName(User user)
         {
             string prms = HttpUtility.UrlEncode(user.LastName) + "+" + HttpUtility.UrlEncode(user.FirstName);
-            var response = await html.GetAsync(url + prms);
+            var response = await httpClient.GetAsync(url + prms);
             string respString = await response.Content.ReadAsStringAsync();
             respString = respString.Replace("{\"data\": ", "").Replace(", \"success\": true}", "");
             respString = respString
