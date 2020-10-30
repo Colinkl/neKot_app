@@ -25,15 +25,11 @@ namespace neKot_app.Views
                                    
         }
 
-        async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
+        
+        protected override void OnAppearing()
         {
-            if (e.Item == null)
-                return;
-
-            await DisplayAlert("Item Tapped", "An item was tapped.", "OK");
-
-            //Deselect Item
-            ((ListView)sender).SelectedItem = null;
+            base.OnAppearing();
+            _viewModel.AppearItemsCommamd.Execute(0);
         }
     }
 }

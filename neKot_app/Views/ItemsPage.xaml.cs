@@ -27,7 +27,7 @@ namespace neKot_app.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            _viewModel.OnAppearing();
+            _viewModel.LoadItemsCommand.Execute(0);
         }
     }
 }

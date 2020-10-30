@@ -13,6 +13,7 @@ namespace neKot_app.ViewModels
      public class  AchivementViewModel : BaseViewModel
     {
         public Command LoadItemsCommand { get; }
+        public Command AppearItemsCommamd {get; }
         public ObservableCollection<Achivement> Achivements { get; set; }
 
         private AchivementsSearch achivementsSearch;
@@ -24,15 +25,43 @@ namespace neKot_app.ViewModels
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
             achivementsSearch = new AchivementsSearch();
             currentUser = new User() { FirstName = "Алексей", LastName = "Бакланов" };
+            AppearItemsCommamd = new Command(async() => await ExecuteAppearItemsCommand());
         }
 
         private async Task ExecuteLoadItemsCommand()
         {
             IsBusy = true;
-
+            Achivements.Clear();
             try
             {
-                Achivements.Clear();
+                
+                List<Achivement> achivements = await achivementsSearch.GetAchivementsByName(currentUser);
+                //Achivements = new ObservableCollection<Achivement>(achivements);
+                foreach (var item in achivements)
+                {
+                    Achivements.Add(item);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
+        public void OnAppearing()
+        {
+            IsBusy = true;            
+        }
+        private async Task ExecuteAppearItemsCommand()
+        {
+            
+            Achivements.Clear();
+            try
+            {
+                
                 List<Achivement> achivements = await achivementsSearch.GetAchivementsByName(currentUser);
                 //Achivements = new ObservableCollection<Achivement>(achivements);
                 foreach (var item in achivements)
