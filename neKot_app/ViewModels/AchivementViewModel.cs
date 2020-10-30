@@ -1,4 +1,5 @@
 ﻿using neKot_app.Models;
+using neKot_app.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -13,35 +14,40 @@ namespace neKot_app.ViewModels
     {
         public Command LoadItemsCommand { get; }
         public ObservableCollection<Achivement> Achivements { get; set; }
+
+        private AchivementsSearch achivementsSearch;
+        private User currentUser; // Need to make it static on aplication
         public AchivementViewModel()
         {
             Title = "Achivements";
             Achivements = new ObservableCollection<Achivement>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
+            achivementsSearch = new AchivementsSearch();
+            currentUser = new User() { FirstName = "Алексей", LastName = "Бакланов" };
         }
 
         private async Task ExecuteLoadItemsCommand()
         {
-             await Shell.Current.GoToAsync("//LoginPage");
-            //IsBusy = true;
+            IsBusy = true;
 
-            //try
-            //{
-            //    Achivements.Clear();
-            //    var items =  Achivements;
-            //    foreach (var item in items)
-            //    {
-            //        Achivements.Add(item);
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    Debug.WriteLine(ex);
-            //}
-            //finally
-            //{
-            //    IsBusy = false;
-            //}
+            try
+            {
+                Achivements.Clear();
+                List<Achivement> achivements = await achivementsSearch.GetAchivementsByName(currentUser);
+                //Achivements = new ObservableCollection<Achivement>(achivements);
+                foreach (var item in achivements)
+                {
+                    Achivements.Add(item);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            finally
+            {
+                IsBusy = false;
+            }
         }
     }
 }
