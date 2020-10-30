@@ -22,6 +22,7 @@ namespace neKot_app.ViewModels
 
         private async Task ExecuteLoadItemsCommand()
         {
+             await Shell.Current.GoToAsync("//LoginPage");
             //IsBusy = true;
 
             //try
