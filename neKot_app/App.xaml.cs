@@ -15,6 +15,7 @@ namespace neKot_app
             InitializeComponent();
 
             DependencyService.Register<HttpClient>();
+            DependencyService.Register<UserSaveService>();
             MainPage = new AppShell();
         }
 
