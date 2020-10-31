@@ -38,7 +38,7 @@
                             FontSize="16" />
                         <Image Source ="{Binding Avatar}"
                                Margin="5,0"/>                        
-                        <Label Text="{Binding Date}" 
+                        <Label Text="{Binding DateGood}" 
                             TextColor="Gray"
                             LineBreakMode="NoWrap"
                             Style="{DynamicResource ListItemDetailTextStyle}"
