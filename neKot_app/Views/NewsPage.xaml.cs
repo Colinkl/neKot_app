@@ -6,13 +6,13 @@ using Xamarin.Forms.Xaml;
 
 namespace neKot_app.Views
 {
-    public partial class AboutPage : ContentPage
+    public partial class NewsPage : ContentPage
     {
-        AboutViewModel _viewModel;
-        public AboutPage()
+        NewsViewModel _viewModel;
+        public NewsPage()
         {
             InitializeComponent();
-            BindingContext = _viewModel = new neKot_app.ViewModels.AboutViewModel();
+            BindingContext = _viewModel = new neKot_app.ViewModels.NewsViewModel();
         }
         protected override void OnAppearing()
         {
