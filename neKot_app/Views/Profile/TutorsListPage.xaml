@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="neKot_app.Views.Profile.TutorsListPage"          
+            xmlns:vm="clr-namespace:neKot_app.ViewModels.Profile"
+             xmlns:local="clr-namespace:neKot_app.ViewModels.Profile"  
+             xmlns:model="clr-namespace:neKot_app.Models" xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             Title="{Binding Title}" >
+    
+    <ContentPage.BindingContext>
+        <vm:TutorListViewModel />
+    </ContentPage.BindingContext>
+    
+    <RefreshView x:DataType="local:TutorListViewModel" Command="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+      
+        <CollectionView x:Name="TutorListView"
+                ItemsSource="{Binding TutorsList}"
+                SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Padding="10" x:DataType="model:TutorModel">    
+                        <StackLayout Orientation="Horizontal">
+                            <StackLayout WidthRequest="100">
+                                <controls:CircleImage Source="{Binding avatar}" Aspect="AspectFill"  HorizontalOptions="Center">
+                                  <controls:CircleImage.WidthRequest>
+                                    <OnPlatform x:TypeArguments="x:Double">
+                                      <On Platform="Android, iOS">100</On>
+                                      <On Platform="WinPhone">100</On>
+                                    </OnPlatform>
+                                  </controls:CircleImage.WidthRequest>
+                                  <controls:CircleImage.HeightRequest>
+                                    <OnPlatform x:TypeArguments="x:Double">
+                                      <On Platform="Android, iOS">160</On>
+                                      <On Platform="WinPhone">165</On>
+                                    </OnPlatform>
+                                  </controls:CircleImage.HeightRequest>
+                                </controls:CircleImage>    
+                            </StackLayout>
+                            <StackLayout>
+                                <Label Text="{Binding first_name}" 
+                                    LineBreakMode="WordWrap" 
+                                    Style="{DynamicResource ListItemTextStyle}" 
+                                    TextColor="Black"
+                                    FontSize="20"/>
+                                <Label Text="{Binding last_name}" 
+                                    LineBreakMode="WordWrap" 
+                                    Style="{DynamicResource ListItemTextStyle}" 
+                                    TextColor="Black"
+                                    FontSize="16" />
+                               <Grid> 
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+                                    <StackLayout>
+                                        <Label Text="{Binding telegram_link}" 
+                                            LineBreakMode="WordWrap"
+                                            Style="{DynamicResource ListItem}"
+                                            FontSize="13" />
+                                        <Label Text="{Binding vk_link}" 
+                                            LineBreakMode="NoWrap"
+                                            Style="{DynamicResource ListItem}"
+                                            FontSize="13" />
+                                    </StackLayout>
+                                    <StackLayout Grid.Column="1">
+                                        <Label Text="{Binding whatsapp_link}" 
+                                            LineBreakMode="NoWrap"
+                                            Style="{DynamicResource ListItem}"
+                                            FontSize="13" />
+                                        <Label Text="{Binding email}" 
+                                            LineBreakMode="NoWrap"
+                                            Style="{DynamicResource ListItem}"
+                                            FontSize="13" />     
+                                         
+                                    </StackLayout>   
+                                    
+                            
+                                </Grid>
+                                <Label Text="{Binding description}" Style="{DynamicResource ListItem}" />
+                            </StackLayout>
+                        </StackLayout>                     
+                                                
+                        
+                                    
+                        
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </RefreshView>
+   
+    
+    
+</ContentPage>
+    

@@ -66,7 +66,7 @@ namespace neKot_app.ViewModels
         }
         private async Task ExecuteOpenTutorCommand()
         {
-             await Shell.Current.GoToAsync(nameof(TutorProfilePage));
+             await Shell.Current.GoToAsync(nameof(TutorsListPage));
         }
     }
 }

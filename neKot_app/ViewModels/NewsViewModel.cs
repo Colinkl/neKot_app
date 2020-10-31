@@ -106,8 +106,9 @@ namespace neKot_app.ViewModels
                 News.Add(item);
             }
         }
-        private async Task OpenBrowser(string uri)
+        private async Task OpenBrowser(string url)
         {
+            var uri = url.Replace("Id","id");
             try
             {
                 await Browser.OpenAsync(uri, BrowserLaunchMode.SystemPreferred);

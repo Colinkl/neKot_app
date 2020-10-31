@@ -12,6 +12,8 @@
              Title="{Binding Title}">
     <ContentPage.Content>
         <StackLayout Padding="30,30,10,0" HorizontalOptions="FillAndExpand" VerticalOptions="Center" x:DataType="local:LoginViewModel"  >
+            <Image Source="https://sport.admtyumen.ru/images/thumbnails/1000_1000/t_343568913_body.jpg" HeightRequest="150"/>
+            <Label Text="Регистрация" Style="{DynamicResource Header}" VerticalOptions="Center" FontSize="30"/>
             <Entry Placeholder="Имя" Text="{Binding FirstName}" HorizontalOptions ="FillAndExpand" />
             <Entry Placeholder="Фамилия" Text="{Binding LastName}" HorizontalOptions ="FillAndExpand" />
             <Entry Placeholder="Телефон" Text="{Binding Phone}" HorizontalOptions ="FillAndExpand" />

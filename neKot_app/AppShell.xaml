@@ -47,6 +47,6 @@
     <ShellContent Route="LoginPage" Shell.FlyoutBehavior="Disabled" ContentTemplate="{DataTemplate local:LoginPage}" />
     <ShellContent Route="AuthPage" Shell.FlyoutBehavior="Disabled" ContentTemplate="{DataTemplate local:AuthPage}" />
     <ShellContent Route="AchivementsPage" Shell.FlyoutBehavior="Disabled" ContentTemplate="{DataTemplate local:AchivementPage}" />
-    <ShellContent Route="TutorProfilePage" Shell.FlyoutBehavior="Disabled" ContentTemplate="{DataTemplate profile:TutorProfilePage}" />
+    <ShellContent Route="TutorProfilePage" Shell.FlyoutBehavior="Disabled" ContentTemplate="{DataTemplate profile:TutorsListPage}" />
 
 </Shell>
