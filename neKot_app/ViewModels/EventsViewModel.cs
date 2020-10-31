@@ -15,7 +15,7 @@ namespace neKot_app.ViewModels
         private EventModel _selectedItem;
         public Command LoadItemsCommand { get; }
         public Command AppearItemsCommand {get; }
-        public ObservableCollection<EventModel> News { get; set; }
+        public ObservableCollection<EventModel> EventsCollection { get; set; }
         public Command<EventModel> ItemTapped { get; }
 
         
@@ -23,7 +23,7 @@ namespace neKot_app.ViewModels
         {
             
             Title = "News";
-            News = new ObservableCollection<EventModel>();
+            EventsCollection = new ObservableCollection<EventModel>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
             ItemTapped = new Command<EventModel>(OnItemSelected);
             AppearItemsCommand = new Command(async() => await ExecuteAppearItemsCommand());
@@ -56,13 +56,13 @@ namespace neKot_app.ViewModels
 
             try
             {
-                News.Clear();
+                EventsCollection.Clear();
                 var item = new EventModel {Title = "Cats are the best!", 
                                            Avatar = "https://i1.wp.com/kakoy-prazdnik-segodnya.ru/wp-content/uploads/2019/10/s1200-9.jpg", 
                                            Date_start =  DateTime.Now, 
                                            Link = "https://docs.microsoft.com/ru-ru/xamarin/xamarin-forms/user-interface/collectionview/populate-data#populate-a-collectionview-with-data" };
                
-                News.Add(item);
+                EventsCollection.Add(item);
                 
             }
             catch (Exception ex)
@@ -92,13 +92,13 @@ namespace neKot_app.ViewModels
          
             try
             {
-                News.Clear();
+                EventsCollection.Clear();
                 var item = new EventModel {Title = "Cats are the best!", 
                                            Avatar = "https://i1.wp.com/kakoy-prazdnik-segodnya.ru/wp-content/uploads/2019/10/s1200-9.jpg", 
                                            Date_start =  DateTime.Now, 
                                            Link = "https://docs.microsoft.com/ru-ru/xamarin/xamarin-forms/user-interface/collectionview/populate-data#populate-a-collectionview-with-data" };
                
-                News.Add(item);
+                EventsCollection.Add(item);
                 
             }
             catch (Exception ex)

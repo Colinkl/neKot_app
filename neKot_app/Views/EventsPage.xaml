@@ -9,6 +9,10 @@
     
 
     
+    <ContentPage.BindingContext>
+        <vm:NewsViewModel />
+    </ContentPage.BindingContext>
+    
     <ContentPage.Resources>
         <ResourceDictionary>
             <Color x:Key="Accent">#96d1ff</Color>
@@ -22,20 +26,19 @@
         </Grid.RowDefinitions>
        <RefreshView x:DataType="local:EventsViewModel" Command="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
       
-            <CollectionView x:Name="AchivementsListView"
-                ItemsSource="{Binding News}"
+            <CollectionView x:Name="EventsListView"
+                ItemsSource="{Binding EventsCollection}"
                 SelectionMode="None">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <StackLayout Padding="10" x:DataType="model:NewsModel" >
-						
+                    <StackLayout Padding="10" x:DataType="model:EventModel" >						
                         <Label Text="{Binding Title}" 
                             LineBreakMode="NoWrap" 
                             Style="{DynamicResource ListItemTextStyle}" 
                             FontSize="16" />
                         <Image Source ="{Binding Avatar}"
                                Margin="5,0"/>                        
-                        <Label Text="{Binding Date}" 
+                        <Label Text="{Binding Date_start}" 
                             LineBreakMode="NoWrap"
                             Style="{DynamicResource ListItemDetailTextStyle}"
                             FontSize="13" />    
