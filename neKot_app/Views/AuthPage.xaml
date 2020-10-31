@@ -17,8 +17,7 @@
     <ContentPage.Content>
         <StackLayout x:DataType="local:AuthViewModel" VerticalOptions="Center">
             <Image Source="https://sport.admtyumen.ru/images/thumbnails/1000_1000/t_343568913_body.jpg"/>
-            <Button Text="Зарегистрироваться" Command="{Binding OpenRegPageCommand}"/>
-            <Button Text="Войти" />            
+            <Button Text="Авторизация" Command="{Binding OpenRegPageCommand}"/>         
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

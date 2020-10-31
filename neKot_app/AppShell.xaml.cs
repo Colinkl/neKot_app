@@ -16,6 +16,8 @@ namespace neKot_app
             Routing.RegisterRoute(nameof(LoginPage), typeof(LoginPage));
             Routing.RegisterRoute(nameof(AuthPage), typeof(AuthPage));
             Routing.RegisterRoute(nameof(TutorsListPage), typeof(TutorsListPage));
+            Routing.RegisterRoute(nameof(TutorSelectPage), typeof(TutorSelectPage));
+            
         }
 
     }

@@ -1,26 +1,21 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="neKot_app.Views.ProfilePage"
-             xmlns:local="clr-namespace:neKot_app.ViewModels"
+             xmlns:local="clr-namespace:neKot_app.ViewModels.Profile"
              xmlns:model="clr-namespace:neKot_app.Models"
-             xmlns:vm="clr-namespace:neKot_app.ViewModels"
+             xmlns:vm="clr-namespace:neKot_app.ViewModels.Profile"
              Title="{Binding Title}"
-             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin">
- 
-    <!--<ContentPage.BindingContext>
-        <vm:ProfileViewModel />
-    </ContentPage.BindingContext>-->
-    
-    <ContentPage.Resources>
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             x:Class="neKot_app.Views.Profile.TutorSelectPage">
+  <ContentPage.Resources>
         <ResourceDictionary>
             <Color x:Key="Accent">#96d1ff</Color>
         </ResourceDictionary>
     </ContentPage.Resources>
       <StackLayout>
           <ScrollView>
-              <StackLayout x:DataType="local:ProfileViewModel" Margin="0,20,0,0" Orientation="Vertical" HorizontalOptions="Center" Spacing="18">
-                  <controls:CircleImage Source="{Binding ProfileImage}" Aspect="AspectFill" >
+              <StackLayout x:DataType="local:TutorSelectViewModel" Margin="0,20,0,0" Orientation="Vertical" HorizontalOptions="Center" Spacing="18">
+                  <controls:CircleImage Source="{Binding Avatar}" Aspect="AspectFill" >
                       <controls:CircleImage.WidthRequest>
                         <OnPlatform x:TypeArguments="x:Double">
                           <On Platform="Android, iOS">160</On>
@@ -34,14 +29,12 @@
                         </OnPlatform>
                       </controls:CircleImage.HeightRequest>
                     </controls:CircleImage>                  
-                  <Label x:Name="LblName" Text="Имя" Style="{DynamicResource ListItem}" HorizontalOptions="Center" FontSize="26"/>
-                <Button Command="{Binding RegisterAgainCommand}" Text="Изменить профиль"/>
-                <Button Command="{Binding OpenAchivementsCommand}" Text="Достижения"/>
+                  <Label x:Name="LblName" Text="{Binding FullName}" Style="{DynamicResource ListItem}" HorizontalOptions="Center" FontSize="26"/>
+                <Button Command="{Binding RegisterAgainCommand}" Text="Изменить профиль"/>                
                 <Button Command="{Binding OpenTutorCommand}" Text="Тьютор"/>
-                <Button Command="{Binding OpenDilary}" Text="Личный дневник"/>
+                <Button Text="Личный дневник"/>
 
             </StackLayout>
           </ScrollView>
       </StackLayout>
-  
 </ContentPage>

@@ -14,5 +14,6 @@ namespace neKot_app.Models
         public List<Direction>  Directions {get; set;}
         public string District { get; set; }
         public List<Achivement> Achievements { get; set; }
+        public int TutorID {get; set;}
     }
 }
