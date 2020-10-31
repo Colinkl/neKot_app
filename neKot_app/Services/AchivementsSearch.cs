@@ -25,11 +25,11 @@ namespace neKot_app.Services
             string respString = await response.Content.ReadAsStringAsync();
             respString = respString.Replace("{\"data\": ", "").Replace(", \"success\": true}", "");
             respString = respString
-                .Replace("direction_name", "DirectionName")
-                .Replace("result", "Result")
-                .Replace("child_name", "ChildName")
-                .Replace("event_name", "EventName")
-                .Replace("district_name", "DistrictName")
+                .Replace("direction_name", nameof(Achivement.DirectionName))
+                .Replace("result", nameof(Achivement.Result))
+                .Replace("child_name", nameof(Achivement.ChildName))
+                .Replace("event_name", nameof(Achivement.EventName))
+                .Replace("district_name", nameof(Achivement.DistrictName))
                 .Replace("year", "Year");
             List<Achivement> achivements = JsonSerializer.Deserialize<List<Achivement>>(respString);
             return achivements;

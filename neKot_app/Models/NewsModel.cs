@@ -10,10 +10,10 @@ namespace neKot_app.Models
         public string Title { get; set; }
         public string Avatar { get; set; }
         public int Date { get; set; }
-        public DateTime DateGood {
+        public string DateGood {
             get
             {
-                return new DateTime(1970, 1, 1) + TimeSpan.FromSeconds(Date);
+                return (new DateTime(1970, 1, 1) + TimeSpan.FromSeconds(Date)).ToString("d");
             }        
         }
         public string  Link { get; set; }

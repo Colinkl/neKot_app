@@ -17,6 +17,7 @@ namespace neKot_app.ViewModels
         public string LastName { get; set; }
         public string Phone {get; set;}
         public string Password {get; set;}
+
         private string errMessage;
         public string ErrMessage
         {

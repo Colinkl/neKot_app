@@ -14,8 +14,17 @@ namespace neKot_app.ViewModels
 {
     class EventsViewModel : BaseViewModel
     {
-        private EventModel _selectedItem;
         private EventService eventService;
+        private EventModel _selectedItem;
+        public EventModel SelectedItem
+        {
+            get => _selectedItem;
+            set
+            {
+                SetProperty(ref _selectedItem, value);
+                OnItemSelected(value);
+            }
+        }
         public Command LoadItemsCommand { get; }
         public Command AppearItemsCommand {get; }
         public ObservableCollection<EventModel> EventsCollection { get; set; }
@@ -36,15 +45,6 @@ namespace neKot_app.ViewModels
             IsBusy = true;
             SelectedItem = null;
         }
-        public EventModel SelectedItem
-        {
-            get => _selectedItem;
-            set
-            {
-                SetProperty(ref _selectedItem, value);
-                OnItemSelected(value);
-            }
-        }
         async void OnItemSelected(EventModel news)
         {
             if (news == null)
@@ -57,16 +57,16 @@ namespace neKot_app.ViewModels
             try
             {
                 EventsCollection.Clear();
-                var item = new EventModel
-                {
-                    Title = "Cats are the best!",
-                    Avatar = "https://i1.wp.com/kakoy-prazdnik-segodnya.ru/wp-content/uploads/2019/10/s1200-9.jpg",
-                    //Date_start = DateTime.Now,
-                    Link = "https://docs.microsoft.com/ru-ru/xamarin/xamarin-forms/user-interface/collectionview/populate-data#populate-a-collectionview-with-data"
-                };
+                //var item = new EventModel
+                //{
+                //    Title = "Cats are the best!",
+                //    Avatar = "https://i1.wp.com/kakoy-prazdnik-segodnya.ru/wp-content/uploads/2019/10/s1200-9.jpg",
+                //    //Date_start = DateTime.Now,
+                //    Link = "https://docs.microsoft.com/ru-ru/xamarin/xamarin-forms/user-interface/collectionview/populate-data#populate-a-collectionview-with-data"
+                //};
 
-                EventsCollection.Add(item);
-                //await UpdateEvents();
+                //EventsCollection.Add(item);
+                await UpdateEvents();
             }
             catch (Exception ex)
             {
@@ -80,22 +80,20 @@ namespace neKot_app.ViewModels
         
         private async Task ExecuteAppearItemsCommand()
         {
-            //await Shell.Current.GoToAsync("//LoginPage");
-         
             try
             {
                 EventsCollection.Clear();
-                var item = new EventModel
-                {
-                    Title = "Cats are the best!",
-                    Avatar = "https://i1.wp.com/kakoy-prazdnik-segodnya.ru/wp-content/uploads/2019/10/s1200-9.jpg",
-                    //Date_start = DateTime.Now,
-                    Link = "https://docs.microsoft.com/ru-ru/xamarin/xamarin-forms/user-interface/collectionview/populate-data#populate-a-collectionview-with-data"
-                };
+                //var item = new EventModel
+                //{
+                //    Title = "Cats are the best!",
+                //    Avatar = "https://i1.wp.com/kakoy-prazdnik-segodnya.ru/wp-content/uploads/2019/10/s1200-9.jpg",
+                //    //Date_start = DateTime.Now,
+                //    Link = "https://docs.microsoft.com/ru-ru/xamarin/xamarin-forms/user-interface/collectionview/populate-data#populate-a-collectionview-with-data"
+                //};
 
-                EventsCollection.Add(item);
-                //await UpdateEvents();
-                
+                //EventsCollection.Add(item);
+                await UpdateEvents();
+
             }
             catch (Exception ex)
             {
@@ -106,7 +104,7 @@ namespace neKot_app.ViewModels
                 IsBusy = false;
             }
         }
-        public async Task OpenBrowser(string uri)
+        private async Task OpenBrowser(string uri)
         {
             try
             {
