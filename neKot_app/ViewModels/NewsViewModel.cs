@@ -85,14 +85,11 @@ namespace neKot_app.ViewModels
         private async Task UpdateNews()
         {
             News.Clear();
-            var item = new NewsModel
+            var news = await newsService.GetNews();
+            foreach (var item in news)
             {
-                Title = "Cats are the best!",
-                Avatar = "https://i1.wp.com/kakoy-prazdnik-segodnya.ru/wp-content/uploads/2019/10/s1200-9.jpg",
-                Date = DateTime.Now,
-                Link = "https://docs.microsoft.com/ru-ru/xamarin/xamarin-forms/user-interface/collectionview/populate-data#populate-a-collectionview-with-data"
-            };
-            News.Add(item);
+                News.Add(item);
+            }
         }
         private async Task OpenBrowser(string uri)
         {
