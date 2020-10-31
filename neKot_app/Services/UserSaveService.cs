@@ -9,6 +9,10 @@ namespace neKot_app.Services
 {
     public class UserSaveService
     {
+        public UserSaveService()
+        {
+            //File.Delete(userPath);
+        }
         private string userPath = Path.Combine(Xamarin.Essentials.FileSystem.AppDataDirectory, "currentUser.json");
         private User currentUser;
         public User CurrentUser
@@ -60,5 +64,6 @@ namespace neKot_app.Services
             }
             
         }
+        
     }
 }

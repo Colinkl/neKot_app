@@ -1,4 +1,5 @@
-﻿using System;
+﻿using neKot_app.Views;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,7 +16,7 @@ namespace neKot_app.ViewModels
         }
         public async Task ExecuteOpenRegPageCommand()
         {
-            await Shell.Current.GoToAsync("///LoginPage");
+            await Shell.Current.GoToAsync(nameof(LoginPage));
         }
     }
 }

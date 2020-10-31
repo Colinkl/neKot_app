@@ -3,10 +3,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="neKot_app.Views.AuthPage"            
              Shell.NavBarIsVisible="False"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
              xmlns:local="clr-namespace:neKot_app.ViewModels"
              xmlns:model="clr-namespace:neKot_app.Models"
              xmlns:vm="clr-namespace:neKot_app.ViewModels"
              Title="{Binding Title}">
+   <ContentPage.BindingContext>
+        <vm:AuthViewModel />
+    </ContentPage.BindingContext>
+    
     <ContentPage.Content>
         <StackLayout x:DataType="local:AuthViewModel" VerticalOptions="Center">
             <Image Source="https://www.pioner72.ru/assets/logo1-68478f941cc319d4f1044af279158f78.png"/>

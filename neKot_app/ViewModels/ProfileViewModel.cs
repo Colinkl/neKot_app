@@ -12,7 +12,8 @@ namespace neKot_app.ViewModels
     {
         public Command OpenAchivementsCommand {get;}
         public Command RegisterAgainCommand { get;  }
-
+        public Command CheckAuthCommand {get;}
+     
 
         string profileImage = "https://i.pinimg.com/736x/27/aa/5a/27aa5a2ff02558ef7d099355ed79b022.jpg";
         public string ProfileImage
@@ -40,6 +41,8 @@ namespace neKot_app.ViewModels
         {
             OpenAchivementsCommand = new Command(async() => await ExecuteOpenAchivementsCommand());
             RegisterAgainCommand = new Command(async () => await ExecuteRegisterAgainCommand());
+            CheckAuthCommand = new Command(async() => ExecuteCheckAuthCommand());
+            CheckAuthCommand.Execute(0);
         }
         async Task ExecuteOpenAchivementsCommand()
         {
@@ -49,6 +52,14 @@ namespace neKot_app.ViewModels
         private async Task ExecuteRegisterAgainCommand()
         {
             await Shell.Current.GoToAsync(nameof(LoginPage));
+        }
+        private async Task ExecuteCheckAuthCommand()
+        {
+            if (CurrentUser == null)
+            {
+                await Shell.Current.GoToAsync(nameof(AuthPage));
+                return;
+            }
         }
     }
 }

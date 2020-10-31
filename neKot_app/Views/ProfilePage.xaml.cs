@@ -13,19 +13,19 @@ namespace neKot_app.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ProfilePage : ContentPage
     {
-        ProfileViewModel _viewModel;
+        //ProfileViewModel _viewModel;
         public ProfilePage()
         {
             InitializeComponent();
-        BindingContext = _viewModel = new ProfileViewModel();
+        //BindingContext = _viewModel = new ProfileViewModel();
                                    
         }
 
-        
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
-            _viewModel.CheckAuthCommand.Execute(0);
-        }
+
+        //protected override void OnAppearing()
+        //{          
+        //    base.OnAppearing();
+        //    _viewModel.CheckAuthCommand.Execute(0);
+        //}
     }
 }
