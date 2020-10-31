@@ -37,7 +37,8 @@
                   <Label x:Name="LblName" Text="Имя" Style="{DynamicResource ListItem}" HorizontalOptions="Center" FontSize="26"/>
                 <Button Command="{Binding RegisterAgainCommand}" Text="Изменить профиль"/>
                 <Button Command="{Binding OpenAchivementsCommand}" Text="Достижения"/>
-                <Button Command="{Binding OpenTutorCommand}" Text="Тьюторы"/>
+                <Button Command="{Binding OpenTutorCommand}" Text="Тьютор"/>
+                <Button Text="Личный дневник"/>
 
             </StackLayout>
           </ScrollView>

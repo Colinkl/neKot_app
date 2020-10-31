@@ -23,7 +23,7 @@ namespace neKot_app.ViewModels.Profile
 
         public TutorListViewModel()
         {
-            Title = "Achivements";
+            Title = "Тьюторы";
             Achivements = new ObservableCollection<TutorModel>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
             AppearItemsCommamd = new Command(async() => await ExecuteAppearItemsCommand());
@@ -61,6 +61,7 @@ namespace neKot_app.ViewModels.Profile
         {
             Achivements.Clear();
             Achivements.Add(new TutorModel(){ avatar = "", first_name = "Cat", last_name = "meow", description = "a", email = "caaa"});
+            IsBusy = false;
             //try
             //{
             //    await UpdateAchievements();
@@ -77,6 +78,9 @@ namespace neKot_app.ViewModels.Profile
 
         private async Task UpdateAchievements()
         {
+            Achivements.Clear();
+            Achivements.Add(new TutorModel(){ avatar = "", first_name = "Cat", last_name = "meow", description = "a", email = "caaa"});
+            IsBusy = false;
             // if (CurrentUser == null)
             //{
             //    await Shell.Current.GoToAsync("///LoginPage");

@@ -33,14 +33,14 @@
 						
                         <Label Text="{Binding Title}" 
                             TextColor="Gray"
-                            LineBreakMode="NoWrap" 
+                            LineBreakMode="WordWrap" 
                             Style="{DynamicResource ListItemTextStyle}" 
                             FontSize="16" />
                         <Image Source ="{Binding Avatar}"
-                               Margin="5,0"/>                        
+                               HeightRequest = "300"/>                        
                         <Label Text="{Binding DateGood}" 
                             TextColor="Gray"
-                            LineBreakMode="NoWrap"
+                            LineBreakMode="WordWrap"
                             Style="{DynamicResource ListItemDetailTextStyle}"
                             FontSize="13" />    
                         <StackLayout.GestureRecognizers>
