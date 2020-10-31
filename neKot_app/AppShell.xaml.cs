@@ -11,6 +11,7 @@ namespace neKot_app
         public AppShell()
         {
             InitializeComponent();
+            Routing.RegisterRoute(nameof(AchivementPage), typeof(AchivementPage));
         }
 
     }

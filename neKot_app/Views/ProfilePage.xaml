@@ -33,9 +33,9 @@
                           <On Platform="WinPhone">165</On>
                         </OnPlatform>
                       </controls:CircleImage.HeightRequest>
-                    </controls:CircleImage>
-                  <Label x:DataType="local:ProfileViewModel" Text="Мои достижения" HorizontalOptions="Center" Style="{DynamicResource ListItem}"/>
-                  <Button Command="{Binding OpenAchivementsCommand}"/>
+                    </controls:CircleImage>                  
+                  <Label Text="{Binding FullName}" Style="{DynamicResource ListItem}" HorizontalOptions="Center" FontSize="26"/>
+                  <Button Command="{Binding OpenAchivementsCommand}" Text="Achievements"/>
                   
               </StackLayout>
           </ScrollView>

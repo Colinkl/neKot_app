@@ -1,4 +1,5 @@
-﻿using System;
+﻿using neKot_app.Views;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using Xamarin.Forms;
@@ -37,7 +38,7 @@ namespace neKot_app.ViewModels
         }
         async void ExecuteOpenAchivementsCommand()
         {
-             await Shell.Current.GoToAsync("///AchivementsPage");
+             await Shell.Current.GoToAsync(nameof(AchivementPage));
         }
     }
 }

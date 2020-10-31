@@ -16,6 +16,7 @@ namespace neKot_app.ViewModels
         public Command AppearItemsCommamd { get; }
         public Command BackCommand { get;  }
         public ObservableCollection<Achivement> Achivements { get; set; }
+        
 
         private AchivementsSearch achivementsSearch;
         public AchivementViewModel()
