@@ -25,7 +25,7 @@ namespace neKot_app.ViewModels
             achivementsSearch = new AchivementsSearch(HttpClient);
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
             AppearItemsCommamd = new Command(async() => await ExecuteAppearItemsCommand());
-            BackCommand = new Command(async() => await Return());
+            BackCommand = new Command(async() => await ExecuteBackCommand());
         }
 
         private async Task ExecuteLoadItemsCommand()
@@ -46,7 +46,7 @@ namespace neKot_app.ViewModels
             }
         }
 
-        private async Task Return()
+        private async Task ExecuteBackCommand()
         {
             await Shell.Current.GoToAsync("..");
         }
