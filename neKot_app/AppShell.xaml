@@ -31,8 +31,8 @@
 
     <TabBar>
         <ShellContent Title="News" Icon="tab_about.png" Route="NewsPage" ContentTemplate="{DataTemplate local:NewsPage}" />
-        <ShellContent Title="Browse" Icon="tab_feed.png" ContentTemplate="{DataTemplate local:ItemsPage}" />
-        <ShellContent Title="Profile" Icon="tab_feed.png" Route="Profile" ContentTemplate="{DataTemplate local:AchivementPage}" />
+        <ShellContent Title="Events" Icon="tab_feed.png" ContentTemplate="{DataTemplate local:EventsPage}" />
+        <ShellContent Title="Profile" Icon="tab_feed.png" Route="Profile" ContentTemplate="{DataTemplate local:ProfilePage}" />
     </TabBar>
 
     <!--
