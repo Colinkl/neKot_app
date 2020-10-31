@@ -41,10 +41,10 @@ namespace neKot_app.ViewModels
         {
             OpenAchivementsCommand = new Command(async() => await ExecuteOpenAchivementsCommand());
             RegisterAgainCommand = new Command(async () => await ExecuteRegisterAgainCommand());
-            CheckAuthCommand = new Command(async() => ExecuteCheckAuthCommand());
+            CheckAuthCommand = new Command(async() => await ExecuteCheckAuthCommand());
             CheckAuthCommand.Execute(0);
         }
-        async Task ExecuteOpenAchivementsCommand()
+        private async Task ExecuteOpenAchivementsCommand()
         {
              await Shell.Current.GoToAsync(nameof(AchivementPage));
         }
