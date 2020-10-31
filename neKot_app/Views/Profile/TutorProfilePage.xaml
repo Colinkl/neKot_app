@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="neKot_app.Views.Profile.TutorProfilePage"          
             xmlns:vm="clr-namespace:neKot_app.ViewModels.Profile"
-             xmlns:local="clr-namespace:neKot_app.ViewModels"  
+             xmlns:local="clr-namespace:neKot_app.ViewModels.Profile"  
              xmlns:model="clr-namespace:neKot_app.Models"
              Title="{Binding Title}" >
     
@@ -11,9 +11,9 @@
         <vm:TutorListViewModel />
     </ContentPage.BindingContext>
     
-    <RefreshView x:DataType="local:AchivementViewModel" Command="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+    <RefreshView x:DataType="local:TutorListViewModel" Command="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
       
-        <CollectionView x:Name="AchivementsListView"
+        <CollectionView x:Name="TutorListView"
                 ItemsSource="{Binding Achivements}"
                 SelectionMode="None">
             <CollectionView.ItemTemplate>
