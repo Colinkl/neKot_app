@@ -5,10 +5,18 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="neKot_app.Views.LoginPage"
-             Shell.NavBarIsVisible="False">
+             Shell.NavBarIsVisible="False"
+             xmlns:local="clr-namespace:neKot_app.ViewModels"
+             xmlns:model="clr-namespace:neKot_app.Models"
+             xmlns:vm="clr-namespace:neKot_app.ViewModels"
+             Title="{Binding Title}">
     <ContentPage.Content>
-        <StackLayout Padding="10,0,10,0" VerticalOptions="Center">
-            <Button VerticalOptions="Center" Text="Login" Command="{Binding LoginCommand}"/>
+        <StackLayout Padding="30,30,10,0" HorizontalOptions="FillAndExpand" VerticalOptions="Center" x:DataType="local:LoginViewModel"  >
+            <Entry Placeholder="Имя" Text="{Binding FirstName}" HorizontalOptions ="FillAndExpand" />
+            <Entry Placeholder="Фамилия" Text="{Binding LastName}" HorizontalOptions ="FillAndExpand" />
+            <Entry Placeholder="Телефон" Text="{Binding Phone}" HorizontalOptions ="FillAndExpand" />
+            <Entry Placeholder="Пароль" Text="{Binding Password}" HorizontalOptions ="FillAndExpand" IsPassword ="True"  />
+            <Button HorizontalOptions ="Center" Text="Login" Command="{Binding LoginCommand}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

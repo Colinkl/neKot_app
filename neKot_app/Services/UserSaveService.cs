@@ -9,7 +9,7 @@ namespace neKot_app.Services
 {
     public class UserSaveService
     {
-        private string userPath = "currentUser.json";
+        private string userPath = Path.Combine(Xamarin.Essentials.FileSystem.AppDataDirectory, "currentUser.json");
         private User currentUser;
         public User CurrentUser
         {
