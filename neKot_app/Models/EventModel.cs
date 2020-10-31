@@ -6,12 +6,12 @@ namespace neKot_app.Models
 {
     public class EventModel
     {
-        public int id;
+        public int Id;
         public string Title { get; set;}
         public string Avatar{ get; set;}
         public string Link{ get; set;}
-        public DateTime Date_start{ get; set;}
-        public DateTime Date_end{ get; set;}
+        public int Date_start{ get; set;}
+        public int Date_end{ get; set;}
         public string Location{ get; set;}
         public string Form_of_conducting{ get; set;}
         public string Event_type{ get; set;}
