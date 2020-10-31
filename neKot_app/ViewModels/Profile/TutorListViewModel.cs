@@ -17,15 +17,14 @@ namespace neKot_app.ViewModels.Profile
         public Command LoadItemsCommand { get; }
         public Command AppearItemsCommamd { get; }
         public Command BackCommand { get;  }
-        public ObservableCollection<Achivement> Achivements { get; set; }
+        public ObservableCollection<TutorModel> Achivements { get; set; }
         
 
-        private AchivementsSearch achivementsSearch;
+
         public TutorListViewModel()
         {
             Title = "Achivements";
-            Achivements = new ObservableCollection<Achivement>();
-            achivementsSearch = new AchivementsSearch(HttpClient);
+            Achivements = new ObservableCollection<TutorModel>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
             AppearItemsCommamd = new Command(async() => await ExecuteAppearItemsCommand());
             BackCommand = new Command(async() => await ExecuteBackCommand());
@@ -59,8 +58,9 @@ namespace neKot_app.ViewModels.Profile
             IsBusy = true;
         }
         private async Task ExecuteAppearItemsCommand()
-        {   
-            //Achivements.Clear();
+        {
+            Achivements.Clear();
+            Achivements.Add(new TutorModel(){ avatar = "", first_name = "Cat", last_name = "meow", description = "a", email = "caaa"});
             //try
             //{
             //    await UpdateAchievements();
@@ -77,16 +77,16 @@ namespace neKot_app.ViewModels.Profile
 
         private async Task UpdateAchievements()
         {
-             if (CurrentUser == null)
-            {
-                await Shell.Current.GoToAsync("///LoginPage");
-                return;
-            }
-            List<Achivement> achivements = await achivementsSearch.GetAchivementsByName(CurrentUser);
-            foreach (var item in achivements)
-            {
-                Achivements.Add(item);
-            }
+            // if (CurrentUser == null)
+            //{
+            //    await Shell.Current.GoToAsync("///LoginPage");
+            //    return;
+            //}
+            //List<Achivement> achivements = await achivementsSearch.GetAchivementsByName(CurrentUser);
+            //foreach (var item in achivements)
+            //{
+            //    Achivements.Add(item);
+            //}
         }
     }
     

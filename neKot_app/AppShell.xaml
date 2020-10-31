@@ -2,6 +2,7 @@
 <Shell xmlns="http://xamarin.com/schemas/2014/forms" 
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:local="clr-namespace:neKot_app.Views"
+       xmlns:profile ="clr-namespace:neKot_app.Views.Profile"
        Title="neKot_app"
        x:Class="neKot_app.AppShell">
 
@@ -46,5 +47,6 @@
     <ShellContent Route="LoginPage" Shell.FlyoutBehavior="Disabled" ContentTemplate="{DataTemplate local:LoginPage}" />
     <ShellContent Route="AuthPage" Shell.FlyoutBehavior="Disabled" ContentTemplate="{DataTemplate local:AuthPage}" />
     <ShellContent Route="AchivementsPage" Shell.FlyoutBehavior="Disabled" ContentTemplate="{DataTemplate local:AchivementPage}" />
+    <ShellContent Route="TutorProfilePage" Shell.FlyoutBehavior="Disabled" ContentTemplate="{DataTemplate profile:TutorProfilePage}" />
 
 </Shell>
