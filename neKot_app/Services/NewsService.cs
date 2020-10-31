@@ -26,6 +26,11 @@ namespace neKot_app.Services
                 var response = await httpClient.GetAsync(url + pageId);
                 string respStr = await response.Content.ReadAsStringAsync();
                 respStr = Regex.Match(respStr, "data\":.*\"}]").Value.Replace("data\":", "");
+                respStr = respStr.Replace("id", "Id")
+                                 .Replace("title","Title")
+                                 .Replace("avatar", "Avatar")
+                                 .Replace("date", "Date")
+                                 .Replace("link", "Link");
                 List <NewsModel> news = Utf8Json.JsonSerializer.Deserialize<List<NewsModel>>(respStr);
                 return news;
             }
