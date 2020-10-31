@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="neKot_app.Views.AboutPage"
+             x:Class="neKot_app.Views.NewsPage"
              xmlns:local="clr-namespace:neKot_app.ViewModels"
              xmlns:model="clr-namespace:neKot_app.Models"
              xmlns:vm="clr-namespace:neKot_app.ViewModels"
              Title="{Binding Title}">
     
     <ContentPage.BindingContext>
-        <vm:AboutViewModel />
+        <vm:NewsViewModel />
     </ContentPage.BindingContext>
     
     <ContentPage.Resources>
@@ -22,9 +22,9 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-       <RefreshView x:DataType="local:AboutViewModel" Command="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+       <RefreshView x:DataType="local:NewsViewModel" Command="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
       
-            <CollectionView x:Name="AchivementsListView"
+            <CollectionView x:Name="NewsListView"
                 ItemsSource="{Binding News}"
                 SelectionMode="None">
             <CollectionView.ItemTemplate>
@@ -32,19 +32,21 @@
                     <StackLayout Padding="10" x:DataType="model:NewsModel" >
 						
                         <Label Text="{Binding Title}" 
+                            TextColor="Gray"
                             LineBreakMode="NoWrap" 
                             Style="{DynamicResource ListItemTextStyle}" 
                             FontSize="16" />
                         <Image Source ="{Binding Avatar}"
                                Margin="5,0"/>                        
                         <Label Text="{Binding Date}" 
+                            TextColor="Gray"
                             LineBreakMode="NoWrap"
                             Style="{DynamicResource ListItemDetailTextStyle}"
                             FontSize="13" />    
                         <StackLayout.GestureRecognizers>
 							<TapGestureRecognizer 
                                 NumberOfTapsRequired="1"
-                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:AboutViewModel}}, Path=ItemTapped}"		
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:NewsViewModel}}, Path=ItemTapped}"		
                                 CommandParameter="{Binding .}">
                             </TapGestureRecognizer>
 						</StackLayout.GestureRecognizers>

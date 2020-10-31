@@ -17,14 +17,12 @@ namespace neKot_app.ViewModels
         public ObservableCollection<Achivement> Achivements { get; set; }
 
         private AchivementsSearch achivementsSearch;
-        private User currentUser; // Need to make it static on aplication
         public AchivementViewModel()
         {
             Title = "Achivements";
             Achivements = new ObservableCollection<Achivement>();
-            LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
             achivementsSearch = new AchivementsSearch(HttpClient);
-            currentUser = new User() { FirstName = "Алексей", LastName = "Бакланов" };
+            LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
             AppearItemsCommamd = new Command(async() => await ExecuteAppearItemsCommand());
         }
 
@@ -34,13 +32,7 @@ namespace neKot_app.ViewModels
             Achivements.Clear();
             try
             {
-                
-                List<Achivement> achivements = await achivementsSearch.GetAchivementsByName(currentUser);
-                //Achivements = new ObservableCollection<Achivement>(achivements);
-                foreach (var item in achivements)
-                {
-                    Achivements.Add(item);
-                }
+                await UpdateAchievements();
             }
             catch (Exception ex)
             {
@@ -51,23 +43,17 @@ namespace neKot_app.ViewModels
                 IsBusy = false;
             }
         }
+
         public void OnAppearing()
         {
             IsBusy = true;            
         }
         private async Task ExecuteAppearItemsCommand()
-        {
-            
+        {   
             Achivements.Clear();
             try
             {
-                
-                List<Achivement> achivements = await achivementsSearch.GetAchivementsByName(currentUser);
-                //Achivements = new ObservableCollection<Achivement>(achivements);
-                foreach (var item in achivements)
-                {
-                    Achivements.Add(item);
-                }
+                await UpdateAchievements();
             }
             catch (Exception ex)
             {
@@ -76,6 +62,15 @@ namespace neKot_app.ViewModels
             finally
             {
                 IsBusy = false;
+            }
+        }
+
+        private async Task UpdateAchievements()
+        {
+            List<Achivement> achivements = await achivementsSearch.GetAchivementsByName(CurrentUser);
+            foreach (var item in achivements)
+            {
+                Achivements.Add(item);
             }
         }
     }

@@ -3,7 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:vm="clr-namespace:neKot_app.ViewModels"
              xmlns:local="clr-namespace:neKot_app.ViewModels"  
              xmlns:model="clr-namespace:neKot_app.Models"
-             x:Class="neKot_app.Views.AchivementPage">
+             x:Class="neKot_app.Views.AchivementPage"
+             Title="{Binding Title}">
+            
     <ContentPage.BindingContext>
         <vm:AchivementViewModel/>
     </ContentPage.BindingContext>
@@ -18,6 +20,7 @@
                         <Label Text="{Binding EventName}" 
                             LineBreakMode="WordWrap" 
                             Style="{DynamicResource ListItemTextStyle}" 
+                            TextColor="Gray"
                             FontSize="16" />
                         <Grid> 
                             <Grid.ColumnDefinitions>
@@ -28,18 +31,22 @@
                                 <Label Text="{Binding ChildName}" 
                                     LineBreakMode="WordWrap"
                                     Style="{DynamicResource ListItemDetailTextStyle}"
+                                    TextColor="Gray"
                                     FontSize="13" />
                                 <Label Text="{Binding Year}" 
+                                    TextColor="Gray"
                                     LineBreakMode="NoWrap"
                                     Style="{DynamicResource ListItemDetailTextStyle}"
                                     FontSize="13" />
                             </StackLayout>
                             <StackLayout Grid.Column="1">
                                 <Label Text="{Binding DirectionName}" 
+                                    TextColor="Gray"
                                     LineBreakMode="NoWrap"
                                     Style="{DynamicResource ListItemDetailTextStyle}"
                                     FontSize="13" />
                                 <Label Text="{Binding Result}" 
+                                    TextColor="Gray"
                                     LineBreakMode="NoWrap"
                                     Style="{DynamicResource ListItemDetailTextStyle}"
                                     FontSize="13" />     

@@ -14,11 +14,9 @@ namespace neKot_app
         {
             InitializeComponent();
 
-            DependencyService.Register<MockDataStore>();
             DependencyService.Register<HttpClient>();
+            DependencyService.Register<UserSaveService>();
             MainPage = new AppShell();
-            //Shell.Current.GoToAsync("//LoginPage");
-            
         }
 
         protected override void OnStart()
