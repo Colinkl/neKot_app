@@ -17,28 +17,28 @@
             <Color x:Key="Accent">#96d1ff</Color>
         </ResourceDictionary>
     </ContentPage.Resources>
-    <StackLayout>
-        <ScrollView>
-            <StackLayout x:DataType="local:ProfileViewModel" Margin="0,20,0,0" Orientation="Vertical" HorizontalOptions="Center" Spacing="18">
-                <controls:CircleImage Source="{Binding ProfileImage}" Aspect="AspectFill" >
-                    <controls:CircleImage.WidthRequest>
+      <StackLayout>
+          <ScrollView>
+              <StackLayout x:DataType="local:ProfileViewModel" Margin="0,20,0,0" Orientation="Vertical" HorizontalOptions="Center" Spacing="18">
+                  <controls:CircleImage Source="{Binding ProfileImage}" Aspect="AspectFill" >
+                      <controls:CircleImage.WidthRequest>
                         <OnPlatform x:TypeArguments="x:Double">
-                            <On Platform="Android, iOS">160</On>
-                            <On Platform="WinPhone">165</On>
+                          <On Platform="Android, iOS">160</On>
+                          <On Platform="WinPhone">165</On>
                         </OnPlatform>
-                    </controls:CircleImage.WidthRequest>
-                    <controls:CircleImage.HeightRequest>
+                      </controls:CircleImage.WidthRequest>
+                      <controls:CircleImage.HeightRequest>
                         <OnPlatform x:TypeArguments="x:Double">
-                            <On Platform="Android, iOS">160</On>
-                            <On Platform="WinPhone">165</On>
+                          <On Platform="Android, iOS">160</On>
+                          <On Platform="WinPhone">165</On>
                         </OnPlatform>
-                    </controls:CircleImage.HeightRequest>
-                </controls:CircleImage>
-                <Label x:DataType="local:ProfileViewModel" Text="" HorizontalOptions="Center" Style="{DynamicResource ListItem}"/>
-                <Button Text="Мои достижения" Command="{Binding OpenAchivementsCommand}"/>
-
-            </StackLayout>
-        </ScrollView>
-    </StackLayout>
-
+                      </controls:CircleImage.HeightRequest>
+                    </controls:CircleImage>                  
+                  <Label Text="{Binding FullName}" Style="{DynamicResource ListItem}" HorizontalOptions="Center" FontSize="26"/>
+                  <Button Command="{Binding OpenAchivementsCommand}" Text="Achievements"/>
+                  
+              </StackLayout>
+          </ScrollView>
+      </StackLayout>
+  
 </ContentPage>

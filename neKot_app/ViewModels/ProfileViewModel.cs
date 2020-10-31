@@ -1,7 +1,7 @@
-﻿using System;
+﻿using neKot_app.Views;
+using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace neKot_app.ViewModels
@@ -34,11 +34,11 @@ namespace neKot_app.ViewModels
         }
         public ProfileViewModel()
         {
-           OpenAchivementsCommand = new Command(async() => await ExecuteOpenAchivementsCommand());
+           OpenAchivementsCommand = new Command(async() => ExecuteOpenAchivementsCommand());
         }
-        async Task ExecuteOpenAchivementsCommand()
+        async void ExecuteOpenAchivementsCommand()
         {
-             await Shell.Current.GoToAsync("//AchivementsPage");
+             await Shell.Current.GoToAsync(nameof(AchivementPage));
         }
     }
 }

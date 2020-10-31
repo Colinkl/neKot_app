@@ -5,17 +5,11 @@
              xmlns:model="clr-namespace:neKot_app.Models"
              x:Class="neKot_app.Views.AchivementPage"
              Title="{Binding Title}">
-
+            
     <ContentPage.BindingContext>
         <vm:AchivementViewModel/>
     </ContentPage.BindingContext>
-    <Shell.BackButtonBehavior>
-        <BackButtonBehavior
-        Command="{Binding BackCommand}"
-        IsEnabled="True"
-        TextOverride="Back" 
-           />
-    </Shell.BackButtonBehavior>
+
     <RefreshView x:DataType="local:AchivementViewModel" Command="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
       
         <CollectionView x:Name="AchivementsListView"
