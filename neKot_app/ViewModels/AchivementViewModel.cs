@@ -46,7 +46,11 @@ namespace neKot_app.ViewModels
 
         public void OnAppearing()
         {
-            IsBusy = true;            
+            if (CurrentUser == null)
+            {
+                Shell.Current.GoToAsync("//LoginPage");
+            }
+            IsBusy = true;
         }
         private async Task ExecuteAppearItemsCommand()
         {   

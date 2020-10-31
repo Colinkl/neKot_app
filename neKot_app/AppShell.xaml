@@ -26,6 +26,9 @@
             </Style>
             <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
             <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />
+            <Style x:Key="ListItem" TargetType="Label">
+                <Setter Property="TextColor" Value="Gray"/>
+            </Style>
         </ResourceDictionary>
     </Shell.Resources>
 
