@@ -10,44 +10,47 @@ namespace neKot_app.Services
 {
     public class EventService
     {
-            private HttpClient httpClient;
-            private string url = "http://strategico-dev.ru/api/v1/events?page=";
+        private HttpClient httpClient;
+        private string url = "http://strategico-dev.ru/api/v1/events?page=";
 
-            public EventService(HttpClient httpClient)
+        public EventService(HttpClient httpClient)
+        {
+            this.httpClient = httpClient;
+        }
+
+        public async Task<List<EventModel>> GetEvents(int pageId)
+        {
+            try
             {
-                this.httpClient = httpClient;
+                var response = await httpClient.GetAsync(url + pageId);
+                string respStr = await response.Content.ReadAsStringAsync();
+                respStr = Regex.Match(respStr, "\"data\":.*}]}]").Value;
+                respStr = respStr.Replace("data\":", "");
+                respStr = respStr.Replace("id", nameof(EventModel.Id))
+                                 .Replace("link", nameof(EventModel.Link))
+                                 .Replace("title", nameof(EventModel.Title))
+                                 .Replace("avatar", nameof(EventModel.Avatar))
+                                 .Replace("date_start", nameof(EventModel.DateStartInSeconds))
+                                 .Replace("date_end", nameof(EventModel.DateEndtInSeconds))
+                                 .Replace("location", nameof(EventModel.Location))
+                                 .Replace("form_of_conducting", nameof(EventModel.FormOfconducting))
+                                 .Replace("event_level", nameof(EventModel.EventLevel))
+                                 .Replace("participant_category", nameof(EventModel.ParticipantCategory))
+                                 .Replace("organizer", nameof(EventModel.Organizer))
+                                 .Replace("curator", nameof(EventModel.Curator));
+                                 //.Replace("types", "Types")
+                                 //.Replace("focuses", "Focuses") Cant parse JSON to enum
+                                 //.Replace("profiles", "Profiles")
+                respStr = respStr.Remove(0, 1);
+                char c = respStr[0];
+                List<EventModel> news = Utf8Json.JsonSerializer.Deserialize<List<EventModel>>(respStr);
+                return news;
             }
-
-            public async Task<List<EventModel>> GetEvents(int pageId)
+            catch (Exception e)
             {
-                try
-                {
-                    var response = await httpClient.GetAsync(url + pageId);
-                    string respStr = await response.Content.ReadAsStringAsync();
-                    respStr = Regex.Match(respStr, "\"data\":.*}]}]").Value.Replace("data\":", "");
-                    respStr = respStr.Replace("id", "Id")
-                                     .Replace("title", "Title")
-                                     .Replace("avatar", "Avatar")
-                                     .Replace("date_start", "Date_start")
-                                     .Replace("date_end", "Date_end")
-                                     .Replace("location", "Location")
-                                     .Replace("form_of_conducting", "Form_of_conducting")
-                                     .Replace("event_level", "Event_level")
-                                     .Replace("participant_category", "Participant_category")
-                                     .Replace("organizer", "Organizer")
-                                     .Replace("curator", "Curator")
-                                     .Replace("types", "Types")
-                                     .Replace("focuses", "Focuses")
-                                     .Replace("profiles", "Profiles")
-                                     .Replace("event_id", "Event_id");
-                    List<EventModel> news = Utf8Json.JsonSerializer.Deserialize<List<EventModel>>(respStr);
-                    return news;
-                }
-                catch (Exception e)
-                {
 
-                    throw e;
-                }
+                throw e;
             }
+        }
     }
 }
