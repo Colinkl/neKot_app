@@ -12,6 +12,7 @@ namespace neKot_app
         {
             InitializeComponent();
             Routing.RegisterRoute(nameof(AchivementPage), typeof(AchivementPage));
+            Routing.RegisterRoute(nameof(LoginPage), typeof(LoginPage));
         }
 
     }

@@ -24,7 +24,7 @@ namespace neKot_app.ViewModels
         private async void OnLoginClicked(object obj)
         {
             DependencyService.Get<UserSaveService>().SaveUser(new User() { FirstName = this.FirstName, LastName = this.LastName});
-            await Shell.Current.GoToAsync("..");
+            await Shell.Current.GoToAsync("///Profile");
         }
     }
 }

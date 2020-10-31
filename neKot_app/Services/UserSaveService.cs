@@ -29,7 +29,8 @@ namespace neKot_app.Services
             try
             {
                 currentUser = user;
-                File.WriteAllText(userPath, Utf8Json.JsonSerializer.Serialize(currentUser).ToString());
+                byte[] str = Utf8Json.JsonSerializer.Serialize<User>(user);
+                File.WriteAllBytes(userPath, str);
             }
             catch (Exception e)
             {
@@ -40,14 +41,24 @@ namespace neKot_app.Services
 
         private User GetSavedUser()
         {
-            if (File.Exists(userPath))
+            try
             {
-                return Utf8Json.JsonSerializer.Deserialize<User>(File.ReadAllText(userPath));
+                if (File.Exists(userPath))
+                {
+                    byte[] str = File.ReadAllBytes(userPath);
+                    User user =  Utf8Json.JsonSerializer.Deserialize<User>(str);
+                    return user;
+                }
+                else
+                {
+                    return null;
+                }
             }
-            else
+            catch (Exception e)
             {
-                return null;
+                throw e;
             }
+            
         }
     }
 }
