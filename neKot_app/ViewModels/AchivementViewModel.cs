@@ -67,7 +67,7 @@ namespace neKot_app.ViewModels
 
         private async Task UpdateAchievements()
         {
-            if (CurrentUser == null)
+             if (CurrentUser == null)
             {
                 await Shell.Current.GoToAsync("///LoginPage");
                 return;
