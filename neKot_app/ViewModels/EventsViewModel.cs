@@ -22,7 +22,7 @@ namespace neKot_app.ViewModels
         public EventsViewModel()
         {
             
-            Title = "News";
+            Title = "Events";
             EventsCollection = new ObservableCollection<EventModel>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
             ItemTapped = new Command<EventModel>(OnItemSelected);

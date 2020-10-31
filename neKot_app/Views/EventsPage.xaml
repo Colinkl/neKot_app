@@ -10,7 +10,7 @@
 
     
     <ContentPage.BindingContext>
-        <vm:NewsViewModel />
+        <vm:EventsViewModel />
     </ContentPage.BindingContext>
     
     <ContentPage.Resources>
