@@ -8,9 +8,9 @@
              Title="{Binding Title}"
              xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin">
  
-    <ContentPage.BindingContext>
+    <!--<ContentPage.BindingContext>
         <vm:ProfileViewModel />
-    </ContentPage.BindingContext>
+    </ContentPage.BindingContext>-->
     
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -34,7 +34,7 @@
                         </OnPlatform>
                       </controls:CircleImage.HeightRequest>
                     </controls:CircleImage>                  
-                  <Label Text="{Binding FullName}" Style="{DynamicResource ListItem}" HorizontalOptions="Center" FontSize="26"/>
+                  <Label x:Name="LblName" Text="Имя" Style="{DynamicResource ListItem}" HorizontalOptions="Center" FontSize="26"/>
                 <Button Command="{Binding OpenAchivementsCommand}" Text="Achievements"/>
                 <Button Command="{Binding RegisterAgainCommand}" Text="Заполнить профиль заного"/>
 
