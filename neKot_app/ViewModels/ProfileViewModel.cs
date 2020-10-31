@@ -23,7 +23,6 @@ namespace neKot_app.ViewModels
                 OnPropertyChanged(nameof(ProfileImage));
             }
         }
-        string name = string.Empty;
         public string FullName
         {
             get
@@ -38,7 +37,7 @@ namespace neKot_app.ViewModels
         }
         async void ExecuteOpenAchivementsCommand()
         {
-             await Shell.Current.GoToAsync("AchivementPage");
+             await Shell.Current.GoToAsync("///AchivementsPage");
         }
     }
 }

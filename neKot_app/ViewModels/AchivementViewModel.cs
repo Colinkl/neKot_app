@@ -13,7 +13,8 @@ namespace neKot_app.ViewModels
      public class  AchivementViewModel : BaseViewModel
     {
         public Command LoadItemsCommand { get; }
-        public Command AppearItemsCommamd {get; }
+        public Command AppearItemsCommamd { get; }
+        public Command BackCommand { get;  }
         public ObservableCollection<Achivement> Achivements { get; set; }
 
         private AchivementsSearch achivementsSearch;
@@ -24,6 +25,7 @@ namespace neKot_app.ViewModels
             achivementsSearch = new AchivementsSearch(HttpClient);
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
             AppearItemsCommamd = new Command(async() => await ExecuteAppearItemsCommand());
+            BackCommand = new Command(async() => await Return());
         }
 
         private async Task ExecuteLoadItemsCommand()
@@ -42,6 +44,11 @@ namespace neKot_app.ViewModels
             {
                 IsBusy = false;
             }
+        }
+
+        private async Task Return()
+        {
+            await Shell.Current.GoToAsync("..");
         }
 
         public void OnAppearing()

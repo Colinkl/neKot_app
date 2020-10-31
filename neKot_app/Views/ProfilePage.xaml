@@ -34,7 +34,7 @@
                         </OnPlatform>
                       </controls:CircleImage.HeightRequest>
                     </controls:CircleImage>
-                  <Label x:DataType="local:ProfileViewModel" Text="{Binding FullName}" HorizontalOptions="Center" Style="{DynamicResource ListItemTextStyle}"/>
+                  <Label x:DataType="local:ProfileViewModel" Text="Мои достижения" HorizontalOptions="Center" Style="{DynamicResource ListItem}"/>
                   <Button Command="{Binding OpenAchivementsCommand}"/>
                   
               </StackLayout>

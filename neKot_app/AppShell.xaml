@@ -45,6 +45,6 @@
     -->
     
     <ShellContent Route="LoginPage" Shell.FlyoutBehavior="Disabled" ContentTemplate="{DataTemplate local:LoginPage}" />
-    <ShellContent Route="Achivement" Shell.FlyoutBehavior="Disabled" ContentTemplate="{DataTemplate local:AchivementPage}" />
+    <ShellContent Route="AchivementsPage" Shell.FlyoutBehavior="Disabled" ContentTemplate="{DataTemplate local:AchivementPage}" />
 
 </Shell>
