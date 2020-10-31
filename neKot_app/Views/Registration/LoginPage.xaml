@@ -16,6 +16,7 @@
             <Entry Placeholder="Фамилия" Text="{Binding LastName}" HorizontalOptions ="FillAndExpand" />
             <Entry Placeholder="Телефон" Text="{Binding Phone}" HorizontalOptions ="FillAndExpand" />
             <Entry Placeholder="Пароль" Text="{Binding Password}" HorizontalOptions ="FillAndExpand" IsPassword ="True"  />
+            <Label Text="{Binding ErrMessage}" TextColor="Red"/>
             <Button HorizontalOptions ="Center" Text="Login" Command="{Binding LoginCommand}"/>
         </StackLayout>
     </ContentPage.Content>
