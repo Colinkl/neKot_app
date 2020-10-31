@@ -6,10 +6,16 @@ namespace neKot_app.Models
 {
     public class NewsModel
     {
-        public int id {get; set;}
+        public int Id { get; set; }
         public string Title { get; set; }
         public string Avatar { get; set; }
-        public DateTime Date { get; set; }
+        public int Date { get; set; }
+        public DateTime DateGood {
+            get
+            {
+                return new DateTime(1970, 1, 1) + TimeSpan.FromSeconds(Date);
+            }        
+        }
         public string  Link { get; set; }
     }
 }
