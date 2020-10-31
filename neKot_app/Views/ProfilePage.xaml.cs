@@ -1,4 +1,5 @@
-﻿using System;
+﻿using neKot_app.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,9 +13,11 @@ namespace neKot_app.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ProfilePage : ContentPage
     {
+
         public ProfilePage()
         {
             InitializeComponent();
+
         }
     }
 }
