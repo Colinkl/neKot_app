@@ -36,6 +36,7 @@
         <ShellContent Title="News" Icon="tab_about.png" Route="NewsPage" ContentTemplate="{DataTemplate local:NewsPage}" />
         <ShellContent Title="Events" Icon="tab_feed.png" ContentTemplate="{DataTemplate local:EventsPage}" />
         <ShellContent Title="Profile" Icon="tab_feed.png" Route="Profile" ContentTemplate="{DataTemplate local:ProfilePage}" />
+        <ShellContent Route="Achivement" Shell.FlyoutBehavior="Disabled" ContentTemplate="{DataTemplate local:AchivementPage}" />
     </TabBar>
 
     <!--
@@ -44,6 +45,6 @@
     -->
     
     <ShellContent Route="LoginPage" Shell.FlyoutBehavior="Disabled" ContentTemplate="{DataTemplate local:LoginPage}" />
-
+    <ShellContent Route="Achivement" Shell.FlyoutBehavior="Disabled" ContentTemplate="{DataTemplate local:AchivementPage}" />
 
 </Shell>

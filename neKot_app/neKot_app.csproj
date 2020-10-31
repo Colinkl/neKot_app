@@ -32,4 +32,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ViewModels\Registration\" />
+    <Folder Include="ViewModels\Profile\" />
+  </ItemGroup>
 </Project>
