@@ -21,11 +21,19 @@ namespace neKot_app.Services
 
         public async Task<List<NewsModel>> GetNews(int pageId)
         {
-            var response = await httpClient.GetAsync(url + pageId);
-            string respStr = await response.Content.ReadAsStringAsync();
-            respStr = Regex.Match(respStr, "data\":.*\"}]").Value;
-            List<NewsModel> news = Utf8Json.JsonSerializer.Deserialize<List<NewsModel>>(respStr);
-            return news;
+            try
+            {
+                var response = await httpClient.GetAsync(url + pageId);
+                string respStr = await response.Content.ReadAsStringAsync();
+                respStr = Regex.Match(respStr, "data\":.*\"}]").Value.Replace("data\":", "");
+                List <NewsModel> news = Utf8Json.JsonSerializer.Deserialize<List<NewsModel>>(respStr);
+                return news;
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
         }
     }
 }
