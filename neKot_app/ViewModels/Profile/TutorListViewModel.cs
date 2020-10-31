@@ -3,12 +3,14 @@ using neKot_app.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Text;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace neKot_app.ViewModels.Profile
 {
-    class TutorListViewModel : BaseViewModel
+   public class TutorListViewModel : BaseViewModel
     {
           
     
@@ -31,20 +33,20 @@ namespace neKot_app.ViewModels.Profile
 
         private async Task ExecuteLoadItemsCommand()
         {
-            IsBusy = true;
-            Achivements.Clear();
-            try
-            {
-                await UpdateAchievements();
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex);
-            }
-            finally
-            {
-                IsBusy = false;
-            }
+            //IsBusy = true;
+            //Achivements.Clear();
+            //try
+            //{
+            //    await UpdateAchievement();
+            //}
+            //catch (Exception ex)
+            //{
+            //    Debug.WriteLine(ex);
+            //}
+            //finally
+            //{
+            //    IsBusy = false;
+            //}
         }
 
         private async Task ExecuteBackCommand()
@@ -58,19 +60,19 @@ namespace neKot_app.ViewModels.Profile
         }
         private async Task ExecuteAppearItemsCommand()
         {   
-            Achivements.Clear();
-            try
-            {
-                await UpdateAchievements();
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex);
-            }
-            finally
-            {
-                IsBusy = false;
-            }
+            //Achivements.Clear();
+            //try
+            //{
+            //    await UpdateAchievements();
+            //}
+            //catch (Exception ex)
+            //{
+            //    Debug.WriteLine(ex);
+            //}
+            //finally
+            //{
+            //    IsBusy = false;
+            //}
         }
 
         private async Task UpdateAchievements()
@@ -87,5 +89,5 @@ namespace neKot_app.ViewModels.Profile
             }
         }
     }
-    }
+    
 }

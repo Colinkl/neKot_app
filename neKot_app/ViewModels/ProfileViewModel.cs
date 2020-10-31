@@ -1,5 +1,6 @@
 ﻿using neKot_app.Models;
 using neKot_app.Views;
+using neKot_app.Views.Profile;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -44,7 +45,7 @@ namespace neKot_app.ViewModels
             RegisterAgainCommand = new Command(async () => await ExecuteRegisterAgainCommand());
             CheckAuthCommand = new Command(async() => await ExecuteCheckAuthCommand());
             CheckAuthCommand.Execute(0);
-            OpenTutorCommand = new Command();
+            OpenTutorCommand = new Command(async() => await ExecuteOpenTutorCommand());
         }
         private async Task ExecuteOpenAchivementsCommand()
         {
@@ -62,6 +63,10 @@ namespace neKot_app.ViewModels
                 await Shell.Current.GoToAsync(nameof(AuthPage));
                 return;
             }
+        }
+        private async Task ExecuteOpenTutorCommand()
+        {
+             await Shell.Current.GoToAsync(nameof(TutorListPage));
         }
     }
 }

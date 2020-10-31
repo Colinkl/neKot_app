@@ -10,7 +10,7 @@ using Xamarin.Forms.Xaml;
 namespace neKot_app.Views.Profile
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class TutorProfilePage : ContentView
+    public partial class TutorProfilePage : ContentPage
     {
         public TutorProfilePage()
         {
