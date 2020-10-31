@@ -85,7 +85,11 @@ namespace neKot_app.ViewModels
         private async Task UpdateNews()
         {
             News.Clear();
-            var news = await newsService.GetNews();
+            //var news = await newsService.GetNews();
+            var news = new List<NewsModel>()
+            {
+                new NewsModel {}
+            }
             foreach (var item in news)
             {
                 News.Add(item);

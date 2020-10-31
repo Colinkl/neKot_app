@@ -11,7 +11,7 @@ namespace neKot_app.Services
     public class NewsService
     {
         private HttpClient httpClient;
-        private string url = "http://nekot.local/api/v1/news";
+        private string url = "http://10.0.2.2/api/v1/news";
 
         public NewsService(HttpClient httpClient)
         {
