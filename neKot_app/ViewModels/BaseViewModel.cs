@@ -12,7 +12,8 @@ namespace neKot_app.ViewModels
     public class BaseViewModel : INotifyPropertyChanged
     {
         public HttpClient HttpClient => DependencyService.Get<HttpClient>();
-        public User CurrentUser => DependencyService.Get<UserSaveService>().CurrentUser;
+        public User CurrentUser = new User {ID = 1, FirstName = "Ксения", LastName="Идрикова"};
+           
 
         bool isBusy = false;
         public bool IsBusy

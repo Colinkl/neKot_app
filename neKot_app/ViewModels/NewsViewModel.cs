@@ -89,7 +89,7 @@ namespace neKot_app.ViewModels
             var news = new List<NewsModel>()
             {
                 new NewsModel {}
-            }
+            };
             foreach (var item in news)
             {
                 News.Add(item);
