@@ -89,8 +89,8 @@ namespace neKot_app.ViewModels
             //var news = await newsService.GetNews();
             var news = new List<NewsModel>()
             {
-                new NewsModel { Title = "Стартовал всероссийский этап Всероссийских спортивных состязаний", Avatar = "https://admtyumen.ru/images/thumbnails/1000_1000/t_-1168059359_body.jpg", Date = DateTime.Now}
-                new NewsModel { Title = "Стартовал всероссийский этап Всероссийских спортивных состязаний", Avatar = "https://admtyumen.ru/images/thumbnails/1000_1000/t_-1168059359_body.jpg", Date = DateTime.Now}
+                new NewsModel { Title = "Стартовал всероссийский этап Всероссийских спортивных состязаний", Avatar = "https://admtyumen.ru/images/thumbnails/1000_1000/t_-1168059359_body.jpg", Date = DateTime.Now},
+                new NewsModel { Title = "Стартовал всероссийский этап Всероссийских спортивных состязаний", Avatar = "https://admtyumen.ru/images/thumbnails/1000_1000/t_-1168059359_body.jpg", Date = DateTime.Now},
                 new NewsModel { Title = "Стартовал всероссийский этап Всероссийских спортивных состязаний", Avatar = "https://admtyumen.ru/images/thumbnails/1000_1000/t_-1168059359_body.jpg", Date = DateTime.Now}
             };
             foreach (var item in news)
