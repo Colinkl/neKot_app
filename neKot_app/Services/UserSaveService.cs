@@ -38,7 +38,7 @@ namespace neKot_app.Services
             }
         }
 
-        public User GetSavedUser()
+        private User GetSavedUser()
         {
             if (File.Exists(userPath))
             {

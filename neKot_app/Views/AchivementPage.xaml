@@ -30,25 +30,21 @@
                             <StackLayout>
                                 <Label Text="{Binding ChildName}" 
                                     LineBreakMode="WordWrap"
-                                    Style="{DynamicResource ListItemDetailTextStyle}"
-                                    TextColor="Gray"
+                                    Style="{DynamicResource ListItem}"
                                     FontSize="13" />
                                 <Label Text="{Binding Year}" 
-                                    TextColor="Gray"
                                     LineBreakMode="NoWrap"
-                                    Style="{DynamicResource ListItemDetailTextStyle}"
+                                    Style="{DynamicResource ListItem}"
                                     FontSize="13" />
                             </StackLayout>
                             <StackLayout Grid.Column="1">
                                 <Label Text="{Binding DirectionName}" 
-                                    TextColor="Gray"
                                     LineBreakMode="NoWrap"
-                                    Style="{DynamicResource ListItemDetailTextStyle}"
+                                    Style="{DynamicResource ListItem}"
                                     FontSize="13" />
                                 <Label Text="{Binding Result}" 
-                                    TextColor="Gray"
                                     LineBreakMode="NoWrap"
-                                    Style="{DynamicResource ListItemDetailTextStyle}"
+                                    Style="{DynamicResource ListItem}"
                                     FontSize="13" />     
                             </StackLayout>
                             
