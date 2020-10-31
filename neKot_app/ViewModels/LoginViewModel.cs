@@ -10,7 +10,8 @@ namespace neKot_app.ViewModels
 {
     public class LoginViewModel : BaseViewModel
     {
-        User user;
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
         public Command LoginCommand { get; }
 
         public LoginViewModel()
@@ -20,8 +21,8 @@ namespace neKot_app.ViewModels
 
         private async void OnLoginClicked(object obj)
         {
-            DependencyService.Get<UserSaveService>().SaveUser(user);
-            await Shell.Current.GoToAsync($"..");
+            DependencyService.Get<UserSaveService>().SaveUser(new User() { FirstName = this.FirstName, LastName = this.LastName});
+            await Shell.Current.GoToAsync("..");
         }
     }
 }
