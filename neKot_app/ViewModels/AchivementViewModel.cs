@@ -48,7 +48,7 @@ namespace neKot_app.ViewModels
 
         private async Task ExecuteBackCommand()
         {
-            await Shell.Current.GoToAsync("..");
+            await Shell.Current.GoToAsync("///Profile");
         }
 
         public void OnAppearing()
