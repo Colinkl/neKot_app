@@ -13,6 +13,7 @@ namespace neKot_app.ViewModels
         public Command OpenAchivementsCommand {get;}
         public Command RegisterAgainCommand { get;  }
         public Command CheckAuthCommand {get;}
+        public Command OpenTutorCommand {get;}
      
 
         string profileImage = "https://i.pinimg.com/736x/27/aa/5a/27aa5a2ff02558ef7d099355ed79b022.jpg";
@@ -43,6 +44,7 @@ namespace neKot_app.ViewModels
             RegisterAgainCommand = new Command(async () => await ExecuteRegisterAgainCommand());
             CheckAuthCommand = new Command(async() => await ExecuteCheckAuthCommand());
             CheckAuthCommand.Execute(0);
+            OpenTutorCommand = new Command();
         }
         private async Task ExecuteOpenAchivementsCommand()
         {
