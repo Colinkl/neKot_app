@@ -23,7 +23,7 @@ namespace neKot_app.Services
             var response = await httpClient.GetAsync(url);
             string respStr = await response.Content.ReadAsStringAsync();
             List<NewsModel> news = Utf8Json.JsonSerializer.Deserialize<List<NewsModel>>(respStr);
-            return new List<NewsModel>();
+            return news;
         }
     }
 }

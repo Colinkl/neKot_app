@@ -46,10 +46,6 @@ namespace neKot_app.ViewModels
 
         public void OnAppearing()
         {
-            if (CurrentUser == null)
-            {
-                Shell.Current.GoToAsync("//LoginPage");
-            }
             IsBusy = true;
         }
         private async Task ExecuteAppearItemsCommand()
@@ -71,6 +67,11 @@ namespace neKot_app.ViewModels
 
         private async Task UpdateAchievements()
         {
+            if (CurrentUser == null)
+            {
+                await Shell.Current.GoToAsync("///LoginPage");
+                return;
+            }
             List<Achivement> achivements = await achivementsSearch.GetAchivementsByName(CurrentUser);
             foreach (var item in achivements)
             {
