@@ -17,6 +17,7 @@ namespace neKot_app.ViewModels
         public string LastName { get; set; }
         public string Phone {get; set;}
         public string Password {get; set;}
+        public bool Checkbox { get; set; }
 
         private string errMessage;
         public string ErrMessage
@@ -42,6 +43,12 @@ namespace neKot_app.ViewModels
 
         private async void OnLoginClicked(object obj)
         {
+            ErrMessage = "";
+            if (!Checkbox)
+            {
+                ErrMessage = "Неободимо дать согласие на передачу и использование данных";
+                return;
+            }
             var tempUser = new User(){ FirstName = this.FirstName, LastName = this.LastName } ;
             var tempList = await FirstachivementsSearch.GetAchivementsByName(tempUser);
             if (tempList.Count == 0)
