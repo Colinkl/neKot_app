@@ -19,6 +19,11 @@
             <Entry Placeholder="Телефон" Text="{Binding Phone}" HorizontalOptions ="FillAndExpand" />
             <Entry Placeholder="Пароль" Text="{Binding Password}" HorizontalOptions ="FillAndExpand" IsPassword ="True"  />
             <Label Text="{Binding ErrMessage}" TextColor="Red"/>
+            <StackLayout Orientation="Horizontal">
+                <CheckBox IsChecked="{Binding Checkbox, Mode=TwoWay}"/>
+                <Label Text="Даю согасие на передачу и использование данных" Style="{DynamicResource ListItem}"/>
+            </StackLayout>
+
             <Button HorizontalOptions ="Center" Text="Login" Command="{Binding LoginCommand}"/>
         </StackLayout>
     </ContentPage.Content>
