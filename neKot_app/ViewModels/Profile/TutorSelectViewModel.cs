@@ -98,7 +98,7 @@ namespace neKot_app.ViewModels.Profile
         }
         private async Task ExecuteOpenAchivementsCommand()
         {
-             await GetTutor(CurrentUser.TutorID);
+             await GetTutor(0);
         }
 
         private async Task ExecuteRegisterAgainCommand()

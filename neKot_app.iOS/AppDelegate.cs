@@ -1,4 +1,10 @@
-﻿using System;
+using Syncfusion.XForms.iOS.Cards;
+using Syncfusion.XForms.iOS.Graphics;
+using Syncfusion.XForms.iOS.BadgeView;
+using Syncfusion.XForms.iOS.Border;
+using Syncfusion.ListView.XForms.iOS;
+using Syncfusion.XForms.iOS.Buttons;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -25,6 +31,11 @@ namespace neKot_app.iOS
         {
             global::Xamarin.Forms.Forms.SetFlags("CollectionView_Experimental");
             global::Xamarin.Forms.Forms.Init();
+            SfCardViewRenderer.Init();
+            SfBadgeViewRenderer.Init();
+            SfBorderRenderer.Init();
+            SfListViewRenderer.Init();
+            SfButtonRenderer.Init();
             ImageCircleRenderer.Init();
             LoadApplication(new App());
 

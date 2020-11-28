@@ -3,6 +3,7 @@
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:local="clr-namespace:neKot_app.Views"
        xmlns:profile ="clr-namespace:neKot_app.Views.Profile"
+       xmlns:chat ="clr-namespace:neKot_app.Views.Chat"
        Title="neKot_app"
        x:Class="neKot_app.AppShell">
 
@@ -34,9 +35,11 @@
     </Shell.Resources>
 
     <TabBar>
-        <ShellContent Title="News" Icon="tab_about.png" Route="NewsPage" ContentTemplate="{DataTemplate local:NewsPage}" />
-        <ShellContent Title="Events" Icon="tab_feed.png" ContentTemplate="{DataTemplate local:EventsPage}" />
-        <ShellContent Title="Profile" Icon="tab_feed.png" Route="Profile" ContentTemplate="{DataTemplate local:ProfilePage}" />
+        <ShellContent Title="Главная страница" Icon="tab_about.png" Route="NewsPage" ContentTemplate="{DataTemplate local:NewsPage}" />
+        <ShellContent Title="Задания" Icon="tab_feed.png" ContentTemplate="{DataTemplate local:EventsPage}" />
+        <ShellContent Title="Голосовой ассистент" Icon="tab_feed.png" Route="Assistant" ContentTemplate="{DataTemplate local:ProfilePage}" />
+        <ShellContent Title="Мессенджер" Icon="tab_feed.png" Route="Assistant" ContentTemplate="{DataTemplate chat:RecentChatPage}" />
+        <ShellContent Title="Профиль" Icon="tab_feed.png" Route="Profile" ContentTemplate="{DataTemplate local:ProfilePage}" />        
     </TabBar>
 
     <!--
@@ -48,6 +51,7 @@
     <ShellContent Route="AuthPage" Shell.FlyoutBehavior="Disabled" ContentTemplate="{DataTemplate local:AuthPage}" />
     <ShellContent Route="AchivementsPage" Shell.FlyoutBehavior="Disabled" ContentTemplate="{DataTemplate local:AchivementPage}" />
     <ShellContent Route="TutorProfilePage" Shell.FlyoutBehavior="Disabled" ContentTemplate="{DataTemplate profile:TutorsListPage}" />
-    <ShellContent Route="TutorSelectPage" Shell.FlyoutBehavior="Disabled" ContentTemplate="{DataTemplate profile:TutorSelectPage}" />
+    <ShellContent Route="RecentChatPage" Shell.FlyoutBehavior="Disabled" ContentTemplate="{DataTemplate chat:RecentChatPage}" />
+    <ShellContent Route="RecentChatPage" Shell.FlyoutBehavior="Disabled" ContentTemplate="{DataTemplate chat:ChatMessagePage}" />
 
 </Shell>
