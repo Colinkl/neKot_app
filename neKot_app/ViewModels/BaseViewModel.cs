@@ -68,7 +68,7 @@ namespace neKot_app.ViewModels
         /// The PropertyChanged event occurs when changing the value of property.
         /// </summary>
         /// <param name="propertyName">The PropertyName</param>
-        protected void NotifyPropertyChanged([CallerMemberName] string propertyName = null)
+        protected void NotifyPropertyChangеd([CallerMemberName] string propertyName = null)
         {
             this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
