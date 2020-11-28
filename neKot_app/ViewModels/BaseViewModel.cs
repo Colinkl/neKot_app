@@ -42,7 +42,7 @@ namespace neKot_app.ViewModels
             return true;
         }
 
-        #region INotifyPropertyChanged
+        
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
         {
@@ -52,6 +52,27 @@ namespace neKot_app.ViewModels
 
             changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+        #region Event handler
+
+        /// <summary>
+        /// Occurs when the property is changed.
+        /// </summary>
+        
+       
+
+        #endregion
+
+        #region Methods
+
+        /// <summary>
+        /// The PropertyChanged event occurs when changing the value of property.
+        /// </summary>
+        /// <param name="propertyName">The PropertyName</param>
+        protected void NotifyPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
         #endregion
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using neKot_app.ViewModels;
 using neKot_app.Views;
+using neKot_app.Views.Chat;
 using neKot_app.Views.Profile;
 using Xamarin.Forms;
 
@@ -17,6 +18,9 @@ namespace neKot_app
             Routing.RegisterRoute(nameof(AuthPage), typeof(AuthPage));
             Routing.RegisterRoute(nameof(TutorsListPage), typeof(TutorsListPage));
             Routing.RegisterRoute(nameof(TutorSelectPage), typeof(TutorSelectPage));
+            Routing.RegisterRoute(nameof(RecentChatPage), typeof(RecentChatPage));
+            Routing.RegisterRoute(nameof(ChatMessagePage), typeof(ChatMessagePage));
+            
             
         }
 

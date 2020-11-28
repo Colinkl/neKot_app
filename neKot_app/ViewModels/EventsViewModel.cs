@@ -9,14 +9,17 @@ using neKot_app.Views;
 using neKot_app.Models;
 using neKot_app.Services;
 using System.Net.Http;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using System.Collections.Generic;
 
 namespace neKot_app.ViewModels
 {
     class EventsViewModel : BaseViewModel
     {
         private EventService eventService;
-        private EventModel _selectedItem;
-        public EventModel SelectedItem
+        private JobTask _selectedItem;
+        public JobTask SelectedItem
         {
             get => _selectedItem;
             set
@@ -26,18 +29,18 @@ namespace neKot_app.ViewModels
             }
         }
         public Command LoadItemsCommand { get; }
-        public Command AppearItemsCommand {get; }
-        public ObservableCollection<EventModel> EventsCollection { get; set; }
-        public Command<EventModel> ItemTapped { get; }
+        public Command AppearItemsCommand { get; }
+        public ObservableCollection<JobTask> EventsCollection { get; set; }
+        public Command<JobTask> ItemTapped { get; }
 
-        
+
         public EventsViewModel()
         {
             Title = "Events";
-            EventsCollection = new ObservableCollection<EventModel>();
+            EventsCollection = new ObservableCollection<JobTask>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
-            ItemTapped = new Command<EventModel>(OnItemSelected);
-            AppearItemsCommand = new Command(async() => await ExecuteAppearItemsCommand());
+            ItemTapped = new Command<JobTask>(OnItemSelected);
+            AppearItemsCommand = new Command(async () => await ExecuteAppearItemsCommand());
             eventService = new EventService(DependencyService.Get<HttpClient>());
         }
         public void OnAppearing()
@@ -45,11 +48,11 @@ namespace neKot_app.ViewModels
             IsBusy = true;
             SelectedItem = null;
         }
-        async void OnItemSelected(EventModel news)
+        async void OnItemSelected(JobTask news)
         {
             if (news == null)
                 return;
-            await OpenBrowser(news.Link);           
+            await OpenBrowser("");
         }
         private async Task ExecuteLoadItemsCommand()
         {
@@ -77,7 +80,7 @@ namespace neKot_app.ViewModels
                 IsBusy = false;
             }
         }
-        
+
         private async Task ExecuteAppearItemsCommand()
         {
             try
@@ -110,18 +113,26 @@ namespace neKot_app.ViewModels
             {
                 await Browser.OpenAsync(uri, BrowserLaunchMode.SystemPreferred);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
         }
         private async Task UpdateEvents()
         {
-            var events = await eventService.GetEvents(1);
-            foreach (var item in events)
+            System.Net.WebRequest req = System.Net.WebRequest.Create("http://52.151.246.108/TaskManager/GetTask?EmployeeId=1");
+            System.Net.WebResponse resp = req.GetResponse();
+            System.IO.Stream stream = resp.GetResponseStream();
+            System.IO.StreamReader sr = new System.IO.StreamReader(stream);
+            string Out = sr.ReadToEnd();
+            //Out.Replace(@"\","");            
+            var jobTasks = Utf8Json.JsonSerializer.Deserialize<List<JobTask>>(Out);
+            
+            foreach (var item in jobTasks)
             {
                 EventsCollection.Add(item);
-            }
+            }            
+            return;
         }
     }
 }

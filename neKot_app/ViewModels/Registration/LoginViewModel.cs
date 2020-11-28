@@ -40,7 +40,7 @@ namespace neKot_app.ViewModels
         public LoginViewModel()
         {
             LoginCommand = new Command(OnLoginClicked);
-            FirstachivementsSearch = new AchivementsSearch(DependencyService.Get<HttpClient>());
+            
         }
 
         private async void OnLoginClicked(object obj)
@@ -51,13 +51,7 @@ namespace neKot_app.ViewModels
                 ErrMessage = "Неободимо дать согласие на передачу и использование данных";
                 return;
             }
-            var tempUser = new User(){ FirstName = this.FirstName, LastName = this.LastName } ;
-            var tempList = await FirstachivementsSearch.GetAchivementsByName(tempUser);
-            if (tempList.Where(u => u.ChildName.ToLower() == (tempUser.LastName + " " + tempUser.FirstName).ToLower()).ToList().Count == 0)
-            {
-                ErrMessage = "Пользователь не найден" ;
-                return;
-            }
+            var tempUser = new User(){ FirstName = this.FirstName, LastName = this.LastName, Token = "1"} ;          
             DependencyService.Get<UserSaveService>().SaveUser(tempUser);
             await Shell.Current.GoToAsync("///Profile");
         }

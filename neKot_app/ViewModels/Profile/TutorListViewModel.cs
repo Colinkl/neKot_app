@@ -40,7 +40,7 @@ namespace neKot_app.ViewModels.Profile
                 return;
 
             // This will push the ItemDetailPage onto the navigation stack            
-            CurrentUser.TutorID = item.id;
+            //CurrentUser.TutorID = item.id;
             //await Shell.Current.GoToAsync(nameof(TutorSelectPage));
             //await Shell.Current.GoToAsync($"{nameof(TutorSelectPage)}?{nameof(TutorSelectViewModel.Id)}={item.id}");            
             
